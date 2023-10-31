@@ -30,14 +30,14 @@ body {
 }
 
 .WelcomeView {
-    background: url("food.jpg") left bottom;
-    background-size: cover;
-  }
+  background: url("food.jpg") left bottom;
+  background-size: cover;
+}
 
-  
+
 .UserView {
-    background: url("https://cdn.auth0.com/blog/whatabyte-portal/patio.jpeg") left bottom;
-    background-size: cover;
+  background: url("https://cdn.auth0.com/blog/whatabyte-portal/patio.jpeg") left bottom;
+  background-size: cover;
 }
 
 h1,
@@ -112,11 +112,11 @@ a {
   box-shadow: var(--ui-shadow);
 }
 
-.Message > .Title {
+.Message>.Title {
   padding-bottom: 20px;
 }
 
-.Message > .Details {
+.Message>.Details {
   display: flex;
   flex-direction: column;
   line-height: 1.5em;
@@ -151,4 +151,3 @@ a {
   border-bottom: var(--ui-shadow-border);
   box-shadow: var(--ui-shadow);
 }
-
