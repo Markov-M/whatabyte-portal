@@ -1,0 +1,18 @@
+git config --global user.name "Votre nom d'utilisateur"
+git config --global user.email "Votre adresse e-mail"
+
+---------------------------------------------------------------
+git init
+---------------------------------------------------------
+git status
+git branch --list
+------------------------------------------------------------
+git checkout -b <nom_de_votre_nouvelle_branch>
+-------------------------------------------------------
+git add .
+---------------------------------------------------------------------
+git add fichier1 fichier2
+-----------------------------------------------------------------------
+git commit -m "Message de commit"
+git remote add origin https://github.com/Markov-M/whatabyte-portal.git
+git push -u origin [nom de la branche]  
