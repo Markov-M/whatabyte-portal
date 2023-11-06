@@ -10,15 +10,15 @@ const querystring = require("querystring");
 
 require("dotenv").config();
 
-
-
 /**
  * Routes Definitions
  */
 //////////LOGIN
-router.get("/login", passport.authenticate("auth0", {
-  scope: "openid email profile"
-}),
+router.get(
+  "/login",
+  passport.authenticate("auth0", {
+    scope: "openid email profile",
+  }),
   (req, res) => {
     res.redirect("/");
   }
@@ -44,32 +44,33 @@ router.get("/callback", (req, res, next) => {
 });
 //////////LOGOUT
 router.get("/logout", (req, res) => {
-  req.logout();
+  req.logOut(function (err) {
+    if (err) {
+      return next(err);
+    }
+    //res.redirect('/');
+  });
 
   let returnTo = req.protocol + "://" + req.hostname;
-  const port = req.socket.localPort;
-  
+  const ports = req.socket.localPort;
 
-  if (port !== undefined && port !== 80 && port !== 443) {
+  if (ports !== undefined && ports !== 80 && ports !== 443) {
     returnTo =
       process.env.NODE_ENV === "production"
         ? `${returnTo}/`
-        : `${returnTo}:${port}/`;
+        : `${returnTo}:${ports}/`;
   }
 
-  const logoutURL = new URL(
-    `https://${process.env.AUTH0_DOMAIN}/v2/logout`
-  );
+  const logoutURL = new URL(`https://${process.env.AUTH0_DOMAIN}/v2/logout`);
 
   const searchString = querystring.stringify({
     client_id: process.env.AUTH0_CLIENT_ID,
-    returnTo: returnTo
+    returnTo: returnTo,
   });
   logoutURL.search = searchString;
 
   res.redirect(logoutURL);
 });
-
 
 /**
  * Module Exports

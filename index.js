@@ -122,9 +122,10 @@ app.get("/", (req, res) => {
     res.render("user", {
        title: "Profile" , 
        userProfile: userProfile
-   });
+   });  
    
   });
+
 
 
   
@@ -143,4 +144,7 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
     console.log(`Démmarage de l'app web sur http://localhost:${port}`) 
+    console.log()    
   }) 
+
+ 
